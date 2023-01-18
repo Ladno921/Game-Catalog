@@ -1,0 +1,25 @@
+<%- include('./particles/header.ejs') %>
+
+<%- include('./particles/navigation.ejs') %>
+
+<form class="form__center" action="/register" method="post">
+    <div class="fromRegistrationAndAuth">
+        <h2>Регистрация</h2>
+
+        <div class="form-group">
+            <input class="form-group__input" type="text" id="name" name="name" placeholder="Введите Имя">
+        </div>
+    
+        <div class="form-group">
+            <input class="form-group__input" id="password" name="password" type="password" placeholder="Введите Пароль">
+        </div>
+
+        <button class="form-button">Зарегистрироваться</button>
+
+        <div>
+            <h3>Уже есть аккаунт? - <a href="/auth">Войти</a></h3>
+        </div>
+    </div>
+</form>
+
+<%- include('./particles/footer.ejs') %>

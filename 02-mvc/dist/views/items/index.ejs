@@ -1,0 +1,40 @@
+<%- include('../particles/header.ejs') %>
+
+<%- include('../particles/navigation.ejs') %>
+    <div class="dropdownBack">
+        <div class="dropdown">
+            <span class="dropdownName">Жанры</span>
+            <div class="dropdown-content">
+                <% for (let j = 0; j < categories.length; j++) { %>
+                    <span>
+                        <a href="/categories/<%= categories[j].id %>"><%= categories[j].title %></a>
+                    </span><br>
+                <% } %>    
+            </div>
+        </div>
+    </div>
+
+<% for (let i = 0; i < items.length; i++) { %>
+
+    <% if (auth) { %>
+    <div class="section">
+        <a href="/items/<%= items[i].id %>">
+            <h2 class="section__title"><%= items[i].title %></h2>
+            <img class="section__image" src="/img/<%= items[i].image %>">
+        </a>
+        <form class="button_delete" method="post" action="/items/delete">
+            <input type="hidden" value="<%= items[i].id %>" name="id">
+            <input class="form-button" type="submit" value="Удалить">
+        </form>
+    </div>
+    <% } else { %>
+        <div class="section">
+            <a href="/items/<%= items[i].id %>">
+                <h2 class="section__title"><%= items[i].title %></h2>
+                <img class="section__image" src="/img/<%= items[i].image %>">
+            </a>
+        </div>
+    <% } %>
+<% } %>
+
+<%- include('../particles/footer.ejs') %>
